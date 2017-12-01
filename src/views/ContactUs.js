@@ -1,13 +1,29 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-class ConctactUs extends Component {
+class ContactUs extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            phone: this.props.match.params.phone
+        }
+    }
+
     render() {
         return (
-            <div className="ConctactUs">
-                <h1>ConctactUs</h1>
+            <div className="ContactUs">
+                <h1>{"Gracias por contactarnos: ".concat(this.state.phone)}</h1>
+                <Link to="/juan">
+                    <p>Ir a home</p>
+                </Link>
             </div>
         );
     }
 }
 
-export default ConctactUs;
+ContactUs.propTypes = {
+    match: PropTypes.any
+}
+
+export default ContactUs;
